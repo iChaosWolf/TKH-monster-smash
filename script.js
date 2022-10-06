@@ -30,7 +30,7 @@ let playerAttackPoints = randomNum(1, 6)
 //subtract playerAttackPoints from monsterHealth and update the monsterHealth variable
 monsterHealth = monsterHealth - playerAttackPoints
   //use an alert with string template literals to tell the player: 
-  alert(`You attacked ${monsterName} with ${playerAttackPoints}, ${monsterName} has ${monsterHealth} left`)
+  alert(`You attacked ${monsterName} with ${playerAttackPoints} attack points of damage, ${monsterName} has ${monsterHealth} health points left`)
   // 1. player attacked monster 
   // 2. how much damage the player did 
   // 3. how much health the monster has 
@@ -42,7 +42,7 @@ function monsterAttack(){
   //subtract monsterAttackPoints from playerHealth and update the playerHealth variable 
   playerHealth = playerHealth -  monsterAttackPoints
 
-  alert(`You attacked ${playerName} with ${monsterAttackPoints}, ${playerName} has ${playerHealth} left `)
+  alert(`You attacked ${playerName} with ${monsterAttackPoints} attack points of damage, ${playerName} has ${playerHealth} health points left `)
   //use an alert with string template literals to tell the player: 
   // 1. monster attacked player 
   // 2. how much damage the monster did 
@@ -70,7 +70,8 @@ function playRound() {
     }
   }
 
-  
+  // playerTurn === 0 ? playerAttack() : monsterHealth > 0 ? monsterAttack() : ""
+
   if(playerTurn === 1)
   {
     monsterAttack()
@@ -81,8 +82,7 @@ function playRound() {
     }
   }
 
-
-
+  // playerTurn === 1 ? monsterAttack() : playerHealth > 0 ? playerAttack()
 }
 
 function playGame() {
@@ -95,10 +95,10 @@ function playGame() {
 
   //while loop that runs until player or monster's health is <= 0 
   //add the condition in the while loop parentheses 
-  while(playerHealth >= 0 && monsterHealth >= 0){
+  while(playerHealth > 0 && monsterHealth > 0){
     roundNumber++
    //write an alert statement that tells the player what round number it is, and the player's and monster's current health points
-    alert(`Its round ${roundNumber} the current health points for ${playerName} is ${playerHealth} and ${monsterName} health is ${monsterHealth}`)
+    alert(`This is round ${roundNumber} the current health points for ${playerName} is ${playerHealth} and current health points for ${monsterName} is ${monsterHealth}`)
    //call playRound inside the while loop
     playRound()
   }
