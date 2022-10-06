@@ -54,7 +54,7 @@ function monsterAttack(){
 
 function playRound() {
   //use randomNum to return either 0 or 1
-  const goFirst= Math.floor(randomNum(0,2))
+  const goFirst=randomNum(0,2)
   
   //0 = player goes first, 1 = monster goes first
   if(goFirst==0){
@@ -88,8 +88,8 @@ function playGame() {
   while(playerHealth>=0 && monsterHealth>=0){
     roundNumber++
 
-    if(playerHealth>0 && monsterHealth<0){ break;}
-    else if(monsterHealth>0 && playerHealth<0){break;}
+    if(playerHealth>0 && monsterHealth<=0){ break;}
+    else if(monsterHealth>0 && playerHealth<=0){break;}
     
 
    //write an alert statement that tells the player what round number it is, and the player's and monster's current health points
@@ -100,9 +100,9 @@ function playGame() {
 
   }
   //outside of while loop, declare a winner and use alert to show a win or lose message 
-  if(playerHealth>0&&monsterHealth<0){
+  if(playerHealth>0&&monsterHealth<=0){
     alert(`${playerName} wins`)
-  }else{alert(`${monsterName} wins!`)}
+  }else if(playerHealth<=0&&monsterHealth>0){alert(`${monsterName} wins!`)}
 }
 
 //call playGame to start game
