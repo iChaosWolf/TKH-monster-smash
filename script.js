@@ -70,8 +70,6 @@ function playRound() {
     }
   }
 
-  // playerTurn === 0 ? playerAttack() : monsterHealth > 0 ? monsterAttack() : ""
-
   if(playerTurn === 1)
   {
     monsterAttack()
@@ -81,8 +79,6 @@ function playRound() {
       playerAttack()
     }
   }
-
-  // playerTurn === 1 ? monsterAttack() : playerHealth > 0 ? playerAttack()
 }
 
 function playGame() {
